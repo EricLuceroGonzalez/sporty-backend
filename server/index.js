@@ -34,71 +34,71 @@ app.get("/", (req, res) => {
 
 //  C: CREATE ------------
 //  C: CREATE ------------
-app.post("/api/deporte", (req, res) => {
-  // Recibir el jugador
-  console.log(req.body);
+// app.post("/api/deporte", (req, res) => {
+//   // Recibir el jugador
+//   console.log(req.body);
 
-  // Guardar en db
-  const newDeporte = new Deporte(req.body);
-  newDeporte.save((err, newDeporte) => {
-    return err
-      ? res.status(400).send({ mensaje: "Hay un error", res: err })
-      : res.status(200).send({ mensaje: "Deporte guardado", res: newDeporte });
-  });
-});
+//   // Guardar en db
+//   const newDeporte = new Deporte(req.body);
+//   newDeporte.save((err, newDeporte) => {
+//     return err
+//       ? res.status(400).send({ mensaje: "Hay un error", res: err })
+//       : res.status(200).send({ mensaje: "Deporte guardado", res: newDeporte });
+//   });
+// });
 
-app.post("/api/liga", (req, res) => {
-  // Recibir el jugador
-  console.log(req.body);
+// app.post("/api/liga", (req, res) => {
+//   // Recibir el jugador
+//   console.log(req.body);
 
-  // Guardar en db
-  const newLeague = new Liga(req.body);
-  newLeague.save((err, newLeague) => {
-    return err
-      ? res.status(400).send({ mensaje: "Hay un error", res: err })
-      : res.status(200).send({ mensaje: "Liga creada", res: newLeague });
-  });
-});
+//   // Guardar en db
+//   const newLeague = new Liga(req.body);
+//   newLeague.save((err, newLeague) => {
+//     return err
+//       ? res.status(400).send({ mensaje: "Hay un error", res: err })
+//       : res.status(200).send({ mensaje: "Liga creada", res: newLeague });
+//   });
+// });
 
-//crear un Equipo dentro de una liga
-app.post('/api/v1/equipo', (req, res)=>{
-  const nuevaEquipo = req.body;
-  const equipoNuevo = new Equipo(nuevaEquipo);
-  equipoNuevo.save((err, equipoNuevo)=>{
-      return err
-      ? res.status(400).send({mensaje: 'error en el post', res:equipoNuevo, err}):
-      res.status(201).send({message: 'Equipo creado', res: equipoNuevo});
-  });
-  console.log(equipoNuevo);
-})
+// //crear un Equipo dentro de una liga
+// app.post('/api/v1/equipo', (req, res)=>{
+//   const nuevaEquipo = req.body;
+//   const equipoNuevo = new Equipo(nuevaEquipo);
+//   equipoNuevo.save((err, equipoNuevo)=>{
+//       return err
+//       ? res.status(400).send({mensaje: 'error en el post', res:equipoNuevo, err}):
+//       res.status(201).send({message: 'Equipo creado', res: equipoNuevo});
+//   });
+//   console.log(equipoNuevo);
+// })
 
-app.post("/api/player", (req, res) => {
-  // Recibir el jugador
-  console.log(req.body);
+// app.post("/api/player", (req, res) => {
+//   // Recibir el jugador
+//   console.log(req.body);
 
 
-  // Guardar en db
-  const newPlayer = new Player(req.body);
-  newPlayer.save((err, newPlayer) => {
-    return err
-      ? res.status(400).send({ mensaje: "Hay un error", res: err })
-      : res.status(200).send({ mensaje: "Player guardado", res: newPlayer });
-  });
-});
+//   // Guardar en db
+//   const newPlayer = new Player(req.body);
+//   newPlayer.save((err, newPlayer) => {
+//     return err
+//       ? res.status(400).send({ mensaje: "Hay un error", res: err })
+//       : res.status(200).send({ mensaje: "Player guardado", res: newPlayer });
+//   });
+// });
 
-//  C: CREATE ------------
-app.post("/api/team", (req, res) => {
-  // Recibir el jugador
-  console.log(req.body);
+// //  C: CREATE ------------
+// app.post("/api/team", (req, res) => {
+//   // Recibir el jugador
+//   console.log(req.body);
 
-  // Guardar en db
-  const newTeam = new Team(req.body);
-  newTeam.save((err, newTeam) => {
-    return err
-      ? res.status(400).send({ mensaje: "Hay un error", res: err })
-      : res.status(200).send({ mensaje: "Player guardado", res: newTeam });
-  });
-});
+//   // Guardar en db
+//   const newTeam = new Team(req.body);
+//   newTeam.save((err, newTeam) => {
+//     return err
+//       ? res.status(400).send({ mensaje: "Hay un error", res: err })
+//       : res.status(200).send({ mensaje: "Player guardado", res: newTeam });
+//   });
+// });
 
 // Passport middleware
 // app.use(passport.initialize()); // Passport config
