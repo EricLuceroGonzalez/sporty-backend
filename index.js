@@ -1,4 +1,4 @@
-const { app, port } = require("./server");
+const { app, port } = require("./server/index");
 
 // pull database from ./database/index.js
 require("./database");

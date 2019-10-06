@@ -19,8 +19,10 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": "v10.16.3"
   },
   "repository": {
     "type": "git",
