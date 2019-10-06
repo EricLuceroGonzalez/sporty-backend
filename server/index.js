@@ -9,8 +9,8 @@ app.use(cors());
 // Check port
 const port = process.env.port || 3000;
 
-const passport = require("passport");
-const users = require("./users");
+// const passport = require("passport");
+// const users = require("./users");
 
 var dotenv = require("dotenv");
 dotenv.config();
@@ -30,7 +30,6 @@ const Equipo = require('../models/equipo');
 // -------------   CRUD  -----------------
 app.get("/", (req, res) => {
   res.send("Hello World!!!");
-  console.log("Hello World");
 });
 
 //  C: CREATE ------------
@@ -102,9 +101,9 @@ app.post("/api/team", (req, res) => {
 });
 
 // Passport middleware
-app.use(passport.initialize()); // Passport config
-require("../config/passport")(passport); // Routes
-app.use("./users", users);
+// app.use(passport.initialize()); // Passport config
+// require("../config/passport")(passport); // Routes
+// app.use("./users", users);
 
 // Send variables when this file is 'required'
 module.exports = { app, port };
