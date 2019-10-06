@@ -2,9 +2,9 @@
 const mongoose = require("mongoose");
 
 // Conectar mongoose con MongoDB
-// var db_url = process.env.DB_URI
+var db_url = process.env.DB_URI
 // DB Config
-const db_url = require('../config/keys').mongoURI;
+// const db_url = require('../config/keys').mongoURI;
 
 
 mongoose.connect(db_url, { useNewUrlParser: true, useUnifiedTopology: true }, err => {
