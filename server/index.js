@@ -10,7 +10,7 @@ app.use(cors());
 const port = process.env.port || 4001;
 
 const passport = require("passport");
-const users = require('./users');
+const users = require("./users");
 
 var dotenv = require("dotenv");
 dotenv.config();
@@ -23,15 +23,59 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Require Schema's
 const Player = require("../models/playerSchema");
 const Team = require("../models/teamSchema");
+const Deporte = require("../models/deporte");
+const Liga = require("../models/liga");
+const Equipo = require('../models/equipo');
+
 // -------------   CRUD  -----------------
 app.get("/", (req, res) => {
   console.log("Hello World");
 });
 
 //  C: CREATE ------------
-app.post("/api/v1/player", (req, res) => {
+//  C: CREATE ------------
+app.post("/api/deporte", (req, res) => {
   // Recibir el jugador
   console.log(req.body);
+
+  // Guardar en db
+  const newDeporte = new Deporte(req.body);
+  newDeporte.save((err, newDeporte) => {
+    return err
+      ? res.status(400).send({ mensaje: "Hay un error", res: err })
+      : res.status(200).send({ mensaje: "Deporte guardado", res: newDeporte });
+  });
+});
+
+app.post("/api/liga", (req, res) => {
+  // Recibir el jugador
+  console.log(req.body);
+
+  // Guardar en db
+  const newLeague = new Liga(req.body);
+  newLeague.save((err, newLeague) => {
+    return err
+      ? res.status(400).send({ mensaje: "Hay un error", res: err })
+      : res.status(200).send({ mensaje: "Liga creada", res: newLeague });
+  });
+});
+
+//crear un Equipo dentro de una liga
+app.post('/api/v1/equipo', (req, res)=>{
+  const nuevaEquipo = req.body;
+  const equipoNuevo = new Equipo(nuevaEquipo);
+  equipoNuevo.save((err, equipoNuevo)=>{
+      return err
+      ? res.status(400).send({mensaje: 'error en el post', res:equipoNuevo, err}):
+      res.status(201).send({message: 'Equipo creado', res: equipoNuevo});
+  });
+  console.log(equipoNuevo);
+})
+
+app.post("/api/player", (req, res) => {
+  // Recibir el jugador
+  console.log(req.body);
+
 
   // Guardar en db
   const newPlayer = new Player(req.body);
@@ -43,7 +87,7 @@ app.post("/api/v1/player", (req, res) => {
 });
 
 //  C: CREATE ------------
-app.post("/api/v1/team", (req, res) => {
+app.post("/api/team", (req, res) => {
   // Recibir el jugador
   console.log(req.body);
 
@@ -58,8 +102,8 @@ app.post("/api/v1/team", (req, res) => {
 
 // Passport middleware
 app.use(passport.initialize()); // Passport config
-require('../config/passport')(passport); // Routes
-app.use('./users', users);
+require("../config/passport")(passport); // Routes
+app.use("./users", users);
 
 // Send variables when this file is 'required'
 module.exports = { app, port };

@@ -1,11 +1,11 @@
-mongoose = require('mongoose');
+mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const Liga = require('./liga');
-const Partido = require('./partido');
+const Liga = require("./liga");
+const Partido = require("./partido");
 
 const equipoSchema = new Schema({
-  liga: [{type: mongoose.Schema.ObjectId,ref: "Liga", require: false}],
-  nombre: { type: String }, 
+  liga: [{ type: mongoose.Schema.ObjectId, ref: "Liga", require: false }],
+  nombre: { type: String },
   director: {
     nombre: { type: String },
     apellido: { type: String },
@@ -25,24 +25,32 @@ const equipoSchema = new Schema({
       posicion: { type: String },
       numero: { type: Number },
       goles: {
-          aFavor:{type:Number},
-          enContra:{type:Number}
+        aFavor: { default: 0, type: Number },
+        enContra: { default: 0, type: Number }
       },
-      targetas:{
-          amarilla:{type:Number},
-          roja:{type:Number},
+      tarjetas: {
+        amarilla: { default: 0, type: Number },
+        roja: { default: 0, type: Number }
       }
     }
   ],
-  puntos:{type:Number},
-  golesAfovor:{type:Number},
-  golesEnContra:{type:Number},
-  maximoGoleador:{type:Number},
-  capitan:{type:String},
-  partido: [{type: mongoose.Schema.ObjectId, ref: "Partido", require: false}], //referencia
-
+  estadisticas: {
+    puntos: { default: 0, type: Number },
+    ganados: { default: 0, type: Number },
+    empatados: { default: 0, type: Number },
+    perdidos: { default: 0, type: Number },
+    golesAfovor: { default: 0, type: Number },
+    golesEnContra: { default: 0, type: Number },
+    maximoGoleador: { default: 0, type: Number },
+    totaTarjetas: {
+      amarilla: { default: 0, type: Number },
+      roja: { default: 0, type: Number }
+    }
+  },
+  capitan: { type: String },
+  partido: [{ type: mongoose.Schema.ObjectId, ref: "Partido", require: false }] //referencia
 });
 
-const Equipo = mongoose.model('Equipo', equipoSchema)
+const Equipo = mongoose.model("Equipo", equipoSchema);
 
 module.exports = Equipo;
