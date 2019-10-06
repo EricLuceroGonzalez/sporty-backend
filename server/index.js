@@ -7,7 +7,7 @@ const cors = require("cors");
 app.use(cors());
 
 // Check port
-const port = process.env.port || 4001;
+const port = process.env.port || 3000;
 
 const passport = require("passport");
 const users = require("./users");
@@ -29,6 +29,7 @@ const Equipo = require('../models/equipo');
 
 // -------------   CRUD  -----------------
 app.get("/", (req, res) => {
+  res.send("Hello World!!!");
   console.log("Hello World");
 });
 
