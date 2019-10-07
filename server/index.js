@@ -7,7 +7,7 @@ const cors = require("cors");
 app.use(cors());
 
 // Check port
-const port = process.env.port || 3000;
+const port = process.env.PORT || 3000;
 
 // const passport = require("passport");
 // const users = require("./users");
