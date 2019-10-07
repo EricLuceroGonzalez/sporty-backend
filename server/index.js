@@ -25,7 +25,7 @@ const Player = require("../models/playerSchema");
 const Team = require("../models/teamSchema");
 const Deporte = require("../models/deporte");
 const Liga = require("../models/liga");
-const Equipo = require('../models/equipo');
+const Equipo = require("../models/equipo");
 
 // -------------   CRUD  -----------------
 app.get("/", (req, res) => {
@@ -75,7 +75,6 @@ app.get("/", (req, res) => {
 // app.post("/api/player", (req, res) => {
 //   // Recibir el jugador
 //   console.log(req.body);
-
 
 //   // Guardar en db
 //   const newPlayer = new Player(req.body);

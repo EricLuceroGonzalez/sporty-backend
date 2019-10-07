@@ -3,7 +3,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const Player = mongoose.model("player")
+// const Player = mongoose.model("player")
 
 const teamSchema = new Schema({
   name: { type: String, required: true },
