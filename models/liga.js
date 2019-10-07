@@ -6,13 +6,14 @@ const Partido = require('./partido');
 
 const ligaSchema = new Schema({
  deporte: { type: mongoose.Schema.ObjectId, ref: "Deporte", require: false },
- nombre: { type: String },
+ nombreLiga: { type: String },
+ descripcion: { type: String },
  organizador: 
     {
       nombre: { type: String },
       apellido: { type: String },
       cedula: { type: String },
-      edad: { type: Number },
+      fechaDeNac: { type: Number },
       telefono: { type: String },
       direccion: { type: String }
     },
