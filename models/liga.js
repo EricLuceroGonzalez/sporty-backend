@@ -19,8 +19,8 @@ const ligaSchema = new Schema({
     },
 
   fechaCreada: { type: Date },
-  // equipo: [{ type: mongoose.Schema.ObjectId, ref: "Equipo", require: false}], //referencias
-  // partido:[{type: mongoose.Schema.ObjectId, ref: "Partido", require: false}], //referencias
+  equipo: [{ type: mongoose.Schema.ObjectId, ref: "Equipo", require: false}], //referencias
+  partido:[{type: mongoose.Schema.ObjectId, ref: "Partido", require: false}], //referencias
 });
     
     const Liga = mongoose.model('Liga', ligaSchema)

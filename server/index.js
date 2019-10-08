@@ -70,15 +70,14 @@ app.post('/api/equipo', (req, res)=>{
   });
   console.log(equipoNuevo);
 })
+
 //obtener todos los deportes
 app.get("/api/deportes", (req, res)=>{
   Deporte.find()
            .exec()
            .then(data =>
               res.status(200).send(data))
-              .catch(err => res.status(400).send(err));  
-              
-              
+              .catch(err => res.status(400).send(err));               
 });
 
 //get all Ligas
