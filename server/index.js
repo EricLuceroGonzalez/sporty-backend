@@ -84,7 +84,9 @@ app.get("/api/deportes", (req, res)=>{
 app.get("/api/liga", function(req, res) {
 	Liga.find({}, function(err, liga) {
     	Deporte.populate(liga, {path: "deporte"},function(err, liga){
-        	res.status(200).send(liga);
+        return err
+        ? res.status(400).send({ mensaje: "Hay un error", res: err })
+        : res.status(200).send({ mensaje: "Ligas!", res: liga });
         }); 
     });
 });
