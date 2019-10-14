@@ -93,7 +93,7 @@ app.get("/api/liga", function(req, res) {
 });
 
 // Get one liga by ID
-app.get("/api/ligaDetail/:id", function(req, res) {
+app.get("/ligaDetail/:id", function(req, res) {
   ligaID = req.params._id;
   Liga.findById(ligaID)
     .exec()
