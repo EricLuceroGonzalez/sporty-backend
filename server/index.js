@@ -81,7 +81,7 @@ app.get("/api/deportes", (req, res) => {
     .catch(err => res.status(400).send(err));
 });
 
-//get all Ligas
+//get all Ligas by id
 app.get("/api/liga", function(req, res) {
   Liga.find({}, function(err, liga) {
     Deporte.populate(liga, { path: "deporte" }, function(err, liga) {
