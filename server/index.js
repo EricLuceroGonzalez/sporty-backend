@@ -102,12 +102,15 @@ app.get("/api/ligaDetailsss/:id", function(req, res) {
 
 app.get("/api/ligaDetail/:id", function(req, res) {
   Liga.findById(req.params.id, function(err, user) {
-    Liga.populate(user, { path: "deporte" }, function(err, user) {
+    Deporte.populate(user, { path: "deporte", model: "Deporte" }, function(
+      err,
+      user
+    ) {
       console.log(user);
     });
-  })
-  .then(liga => res.status(200).send({ mensaje: "Ligas!!", res: liga }))
-  .catch(err => res.status(400).send({ mensaje: "Hay un error", res: err }));
+  });
+  // .then(liga => res.status(200).send({ mensaje: "Ligas!!", res: liga }))
+  // .catch(err => res.status(400).send({ mensaje: "Hay un error", res: err }));
 });
 
 app.post("/api/player", (req, res) => {
