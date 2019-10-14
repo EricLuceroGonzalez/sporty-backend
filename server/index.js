@@ -92,13 +92,13 @@ app.get("/api/liga", function(req, res) {
   });
 });
 
-// Get one liga by ID
-app.get("/api/ligaDetail/:id", function(req, res) {
-  Liga.findById(req.params.id)
-    .exec()
-    .then(liga => res.status(200).send({ mensaje: "Ligas!!", res: liga }))
-    .catch(err => res.status(400).send({ mensaje: "Hay un error", res: err }));
-});
+// // Get one liga by ID
+// app.get("/api/ligaDetail/:id", function(req, res) {
+//   Liga.findById(req.params.id)
+//     .exec()
+//     .then(liga => res.status(200).send({ mensaje: "Ligas!!", res: liga }))
+//     .catch(err => res.status(400).send({ mensaje: "Hay un error", res: err }));
+// });
 
 app.post("/api/player", (req, res) => {
   // Recibir el jugador
