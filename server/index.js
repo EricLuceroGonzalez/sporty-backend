@@ -96,7 +96,7 @@ app.get("/api/liga", function(req, res) {
 app.get("/api/ligaDetail/:id", function(req, res) {
   Liga.findById(req.params.id)
     .exec()
-    .then(data => res.status(200).send({ mensaje: "Ligas!!", res: liga }))
+    .then(liga => res.status(200).send({ mensaje: "Ligas!!", res: liga }))
     .catch(err => res.status(400).send({ mensaje: "Hay un error", res: err }));
 });
 
