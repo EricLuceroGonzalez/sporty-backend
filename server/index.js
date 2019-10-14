@@ -94,7 +94,7 @@ app.get("/api/liga", function(req, res) {
 
 // Get one liga by ID
 app.get("/ligaDetail/:id", function(req, res) {
-  ligaID = req.params._id;
+  ligaID = req.params.id;
   Liga.findById(ligaID)
     .exec()
     .then(data => res.status(200).send({ mensaje: "Ligas!!", res: liga }))
