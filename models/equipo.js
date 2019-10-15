@@ -2,6 +2,7 @@ mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const Liga = require("./liga");
 const Partido = require("./partido");
+const Player = require("./playerSchema");
 
 const equipoSchema = new Schema({
   liga: [{ type: mongoose.Schema.ObjectId, ref: "Liga", require: false }],
@@ -10,30 +11,11 @@ const equipoSchema = new Schema({
     nombre: { type: String },
     apellido: { type: String },
     cedula: { type: String },
-    edad: { type: String },
-    telefono: { type: String },
+    edad: { type: Number },
+    telefono: { type: Number },
     direccion: { type: String }
   },
-  jugador: [
-    {
-      nombre: { type: String },
-      apellido: { type: String },
-      cedula: { type: String },
-      edad: { type: String },
-      telefono: { type: String },
-      direccion: { type: String },
-      posicion: { type: String },
-      numero: { type: Number },
-      goles: {
-        aFavor: { default: 0, type: Number },
-        enContra: { default: 0, type: Number }
-      },
-      tarjetas: {
-        amarilla: { default: 0, type: Number },
-        roja: { default: 0, type: Number }
-      }
-    }
-  ],
+  jugador: [{ type: mongoose.Schema.ObjectId, ref: "Player", require: false }],
   estadisticas: {
     puntos: { default: 0, type: Number },
     ganados: { default: 0, type: Number },
