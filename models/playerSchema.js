@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const Liga = require("./liga");
 
 const playerSchema = new Schema({
-  LigaId: { type: mongoose.Schema.ObjectId, ref: "Liga", require: false },
+  ligaId: { type: mongoose.Schema.ObjectId, ref: "Liga", require: false },
   nombre: { type: String },
   apellido: { type: String },
   cedula: { type: String },

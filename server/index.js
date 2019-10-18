@@ -46,19 +46,6 @@ app.post("/api/deporte", (req, res) => {
   });
 });
 
-app.post("/api/liga", (req, res) => {
-  // Recibir el jugador
-  console.log(req.body);
-
-  // Guardar en db
-  const newLeague = new Liga(req.body);
-  newLeague.save((err, newLeague) => {
-    return err
-      ? res.status(400).send({ mensaje: "Hay un error", res: err })
-      : res.status(200).send({ mensaje: "Liga creada", res: newLeague });
-  });
-});
-
 //crear un Equipo dentro de una liga
 app.post("/api/equipo", (req, res) => {
   const nuevaEquipo = req.body;
@@ -108,6 +95,21 @@ app.get("/api/ligaDetail/:id", function(req, res) {
     .catch(err => res.status(400).send({ mensaje: "Hay un error", res: err }));
 });
 
+// ---------- POST
+
+app.post("/api/liga", (req, res) => {
+  // Recibir el jugador
+  console.log(req.body);
+
+  // Guardar en db
+  const newLeague = new Liga(req.body);
+  newLeague.save((err, newLeague) => {
+    return err
+      ? res.status(400).send({ mensaje: "Hay un error", res: err })
+      : res.status(200).send({ mensaje: "Liga creada", res: newLeague });
+  });
+});
+
 app.post("/api/player", (req, res) => {
   // Recibir el jugador
   console.log(req.body);
@@ -116,7 +118,7 @@ app.post("/api/player", (req, res) => {
   const newPlayer = new Player(req.body);
   newPlayer.save((err, newPlayer) => {
     return err
-      ? res.status(400).send({ mensaje: "Hay un error", res: err })
+      ? res.status(400).send({ mensaje: "Hay un error - post Player", res: err })
       : res.status(200).send({ mensaje: "Player guardado", res: newPlayer });
   });
 });
