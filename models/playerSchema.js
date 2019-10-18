@@ -2,8 +2,10 @@
 // Copy from mongoose docs
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const Liga = require("./liga");
 
 const playerSchema = new Schema({
+  LigaId: { type: mongoose.Schema.ObjectId, ref: "Liga", require: false },
   nombre: { type: String },
   apellido: { type: String },
   cedula: { type: String },
@@ -11,7 +13,7 @@ const playerSchema = new Schema({
   telefono: { type: String },
   direccion: { type: String },
   posicion: { type: String },
-  numero: { type: Number },
+  numero: { type: String },
   goles: {
     aFavor: { default: 0, type: Number },
     enContra: { default: 0, type: Number }
