@@ -68,6 +68,14 @@ app.get("/api/deportes", (req, res) => {
     .catch(err => res.status(400).send(err));
 });
 
+app.get("/api/equipos", (req, res) => {
+  Equipo.find()
+    .populate()
+    .exec()
+    .then(data => res.status(200).send(data))
+    .catch(err => res.status(400).send(err));
+});
+
 //get all Ligas by id
 app.get("/api/liga", function(req, res) {
   Liga.find({}, function(err, liga) {
@@ -118,7 +126,9 @@ app.post("/api/player", (req, res) => {
   const newPlayer = new Player(req.body);
   newPlayer.save((err, newPlayer) => {
     return err
-      ? res.status(400).send({ mensaje: "Hay un error - post Player", res: err })
+      ? res
+          .status(400)
+          .send({ mensaje: "Hay un error - post Player", res: err })
       : res.status(200).send({ mensaje: "Player guardado", res: newPlayer });
   });
 });
