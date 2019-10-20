@@ -5,7 +5,7 @@ const Partido = require("./partido");
 const Player = require("./playerSchema");
 
 const equipoSchema = new Schema({
-  liga: [{ type: mongoose.Schema.ObjectId, ref: "Liga", require: false }],
+  ligaId: { type: mongoose.Schema.ObjectId, ref: "Liga", require: false },
   nombre: { type: String },
   director: {
     nombre: { type: String },
