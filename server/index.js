@@ -54,7 +54,7 @@ app.post("/api/equipo", (req, res) => {
     return err
       ? res
           .status(400)
-          .send({ mensaje: "error en el post", res: equipoNuevo, err })
+          .send({ mensaje: "error en el post (equipo)", res: equipoNuevo, err })
       : res.status(201).send({ message: "Equipo creado", res: equipoNuevo });
   });
   console.log(equipoNuevo);
