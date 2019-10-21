@@ -68,6 +68,14 @@ app.get("/api/deportes", (req, res) => {
     .catch(err => res.status(400).send(err));
 });
 
+//obtener todos los players
+app.get("/api/players", (req, res) => {
+  Player.find()
+    .exec()
+    .then(data => res.status(200).send(data))
+    .catch(err => res.status(400).send(err));
+});
+
 app.get("/api/equipos", (req, res) => {
   Equipo.find()
     .populate()
